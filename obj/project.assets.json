@@ -7643,7 +7643,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "EntityFramework >= *",
+      "EntityFramework >= 6.4.4",
       "Microsoft.EntityFrameworkCore >= 5.0.4",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.4",
       "Microsoft.EntityFrameworkCore.Relational >= 5.0.4",
@@ -7696,7 +7696,7 @@
         "dependencies": {
           "EntityFramework": {
             "target": "Package",
-            "version": "[*, )"
+            "version": "[6.4.4, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",

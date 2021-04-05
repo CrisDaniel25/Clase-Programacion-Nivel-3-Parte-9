@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Tarea_9.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Tarea_9
 {
@@ -23,6 +25,9 @@ namespace Tarea_9
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<CitaContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+
             services.AddControllersWithViews();
         }
 
