@@ -1,0 +1,228 @@
+﻿@model Cita
+@{
+    ViewData["Title"] = "Cita Vacuna a domicilio";
+}
+
+@if (TempData["solicitud"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+            @TempData["solicitud"]
+</div>
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form asp-action="Create" method="POST">
+                <div class="form-group">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white">
+                                        <i class="fas fa-id-card"></i>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" asp-for="cedula" placeholder="Cédula"
+                                    required="required">
+                                <span asp-validation-for="cedula" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                </div>
+                                <input type="tel" class="form-control" asp-for="telefono" placeholder="Teléfono"
+                                    required="required">
+                                <span asp-validation-for="telefono" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" asp-for="nombre" placeholder="Nombres"
+                                    required="required">
+                                <span asp-validation-for="nombre" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" asp-for="apellido" placeholder="Apellidos"
+                                    required="required">
+                                <span asp-validation-for="apellido" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white">
+                                        <i class="fas fa-at"></i>
+                                    </div>
+                                </div>
+                                <input type="email" class="form-control" asp-for="correoElectronico"
+                                    placeholder="Correo electronico" required="required">
+                                <span asp-validation-for="correoElectronico" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white">
+                                        <i class="fas fa-calendar-day"></i>
+                                    </div>
+                                </div>
+                                <input type="date" class="form-control" asp-for="fechaNacimiento"
+                                    placeholder="Fecha de nacimiento" required="required">
+                                <span asp-validation-for="fechaNacimiento" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white">
+                                        <i class="fas fa-football-ball"></i>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" asp-for="tipoSangre"
+                                    placeholder="Tipo de Sangre" required="required">
+                                <span asp-validation-for="tipoSangre" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white">
+                                        <i class="fas fa-globe-americas"></i>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" asp-for="provincia" placeholder="Provincia"
+                                    required="required">
+                                <span asp-validation-for="provincia" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" asp-for="direccion" placeholder="Direccion"
+                                    required="required">
+                                <span asp-validation-for="direccion" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                    </div>
+                                </div>
+                                <input type="number" class="form-control" asp-for="latitud" placeholder="Latitud"
+                                    required="required">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                    </div>
+                                </div>
+                                <input type="number" class="form-control" asp-for="longitud" placeholder="Longitud"
+                                    required="required">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white">
+                                        <i class="fas fa-head-side-mask"></i>
+                                    </div>
+                                </div>
+                                <select asp-for="covid" class="custom-select">
+                                    <option selected style="display: none;">Le ha dado COVID?</option>
+                                    <option value="true">Si</option>
+                                    <option value="false">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h5 for="exampleFormControlTextarea1">Justifique porque deben vacunarlo en su casa</h5>
+                    <textarea asp-for="justificacion" class="form-control" id="exampleFormControlTextarea1" rows="5"
+                        formControlName="content"></textarea>
+                </div>
+
+
+                <div class="modal-footer col-sm-auto">
+                    <div class="col-sm-auto">
+                        <button class="btn btn-outline-dark btn-lg" type="submit">
+                            <i class="fas fa-paper-plane"></i>&nbsp;
+                            <span>Enviar solictud</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col justify-content-center">
+            <h3 class="text-center">Equipo Super Trabajador S</h3>
+            <ul class="list-group">
+                <li class="list-group-item text-center">
+                    <a>Andres Francisco Taveras - 20197797</a>
+                </li>
+                <li class="list-group-item text-center">
+                    <a>Cristopher Daniel Figueroa Rosario - 20186186</a>
+                </li>
+                <li class="list-group-item text-center">
+                    <a>David Elías Solano Castro - 20187203</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

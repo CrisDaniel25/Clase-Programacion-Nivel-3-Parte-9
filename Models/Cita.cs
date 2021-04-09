@@ -9,10 +9,11 @@ namespace Tarea_9.Models
     public class Cita
     {
         [Key]
-        public long cedula {get; set;}
+        public int Id { get; set; }
+        public string cedula {get; set;}
         public string nombre {get; set;}
         public string apellido {get; set;}
-        public long telefono {get; set;}
+        public string telefono {get; set;}
         public string correoElectronico {get; set;}
         public DateTime fechaNacimiento {get; set;}
         public string tipoSangre {get; set;}

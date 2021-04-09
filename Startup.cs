@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Tarea_9.Context;
+using Tarea_9.EmailHandler;
 using Microsoft.EntityFrameworkCore;
 
 namespace Tarea_9
@@ -29,6 +30,9 @@ namespace Tarea_9
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 
             services.AddControllersWithViews();
+              var emailConfig = Configuration.GetSection("EmailConfiguration").Get<EMconfi>();
+            services.AddSingleton(emailConfig);
+            services.AddScoped<Gmailsender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +59,7 @@ namespace Tarea_9
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Citas}/{action=Index}/{id?}");
             });
         }
     }

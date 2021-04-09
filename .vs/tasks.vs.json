@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-Clase-Programacion-Nivel-3-Parte-9",
+      "appliesTo": "/",
+      "type": "launch"
+    }
+  ]
+}

@@ -21,12 +21,15 @@ namespace Tarea_9.Migrations
 
             modelBuilder.Entity("Tarea_9.Models.Cita", b =>
                 {
-                    b.Property<long>("cedula")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("apellido")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("cedula")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("correoElectronico")
@@ -56,13 +59,13 @@ namespace Tarea_9.Migrations
                     b.Property<string>("provincia")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("telefono")
-                        .HasColumnType("bigint");
+                    b.Property<string>("telefono")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("tipoSangre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("cedula");
+                    b.HasKey("Id");
 
                     b.ToTable("Citas");
                 });
